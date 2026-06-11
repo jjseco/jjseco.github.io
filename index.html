@@ -20,76 +20,62 @@
 
     /* ===== DARK MODE ===== */
     @media (prefers-color-scheme: dark) {
-      body { background: #1c2a22; color: #ede7db; }
-      .nav { background: rgba(28,42,34,0.82); border-bottom-color: #2e3c33; }
-      .nav-logo { color: #ede7db; }
-      .nav-link { color: #9aa595; }
-      .nav-link:hover { color: #ede7db; }
-      .nav-contact { color: #ede7db; box-shadow: inset 0 0 0 1px #3a4a3f; }
-      .nav-contact:hover { box-shadow: inset 0 0 0 1px #ede7db; }
-      .hero { background: #1c2a22; }
-      .hero-name { color: #ede7db; }
-      .hero-bio { color: #9aa595; }
-      .btn-primary { color: #1c2a22; background: #c98a3c; }
-      .btn-secondary { color: #ede7db; box-shadow: inset 0 0 0 1px #3a4a3f; }
-      .btn-secondary:hover { box-shadow: inset 0 0 0 1px #ede7db; }
-      .section-alt { background: #16201b; border-color: #2e3c33; }
-      .section-title { color: #ede7db; }
+      body { background: #141e18; color: #ede7db; }
+      .nav { background: rgba(20,30,24,0.92); border-bottom-color: #2e3c33; }
+      .hero { background: #141e18; }
+      .section-alt { background: #1c2a22; border-color: #2e3c33; }
+      .section-title { color: #f2ede3; }
       .section-text { color: #9aa595; }
-      .card { background: #1c2a22; border-color: #2e3c33; }
-      .card:hover { border-color: #c98a3c; box-shadow: 0 18px 40px rgba(0,0,0,0.3); }
-      .card-title { color: #ede7db; }
+      .card { background: #243029; border-color: #2e3c33; }
+      .card:hover { border-color: #c98a3c; box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
+      .card-title { color: #f2ede3; }
       .card-desc { color: #9aa595; }
-      .card-arrow { color: #ede7db; }
-      .tag { color: #9aa595; background: #2e3c33; }
-      .skill-card { background: #1c2a22; border-color: #2e3c33; }
-      .skill-name { color: #ede7db; }
+      .card-arrow { color: #f2ede3; }
+      .tag { color: #b0b8a8; background: #2e3c33; }
+      .skill-card { background: #243029; border-color: #2e3c33; }
+      .skill-name { color: #f2ede3; }
       .skill-list { color: #9aa595; }
-      .edu-title { color: #ede7db; }
-      .contact-heading { color: #ede7db; }
-      .contact-link { color: #ede7db; }
-      .contact-link:hover { color: #c98a3c; }
-      .footer { border-top-color: #2e3c33; color: #7c8b5f; }
-      .mobile-menu { background: rgba(28,42,34,0.95); border-top-color: #2e3c33; }
-      .mobile-link { color: #ede7db; }
-      .hamburger span { background: #ede7db; }
+      .edu-title { color: #f2ede3; }
+      .contact-section { background: #141e18; }
+      #skills { background: #182320; }
+      #about p { color: #9aa595; }
     }
 
     /* ===== NAV ===== */
     .nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(237,231,219,0.82);
+      background: rgba(28,42,34,0.92);
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid #ddd5c5;
+      border-bottom: 1px solid #2e3c33;
     }
     .nav-inner {
       max-width: 1080px; margin: 0 auto; padding: 0 28px;
       height: 64px; display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; color: #1c2a22; }
+    .nav-logo { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; color: #f2ede3; }
     .nav-links { display: flex; align-items: center; gap: 30px; }
-    .nav-link { font-size: 14.5px; font-weight: 500; color: #555d51; transition: color 0.15s; }
-    .nav-link:hover { color: #1c2a22; }
+    .nav-link { font-size: 14.5px; font-weight: 500; color: #9aa595; transition: color 0.15s; }
+    .nav-link:hover { color: #f2ede3; }
     .nav-contact {
-      font-size: 14.5px; font-weight: 600; color: #1c2a22;
+      font-size: 14.5px; font-weight: 600; color: #f2ede3;
       padding: 8px 16px; border-radius: 8px;
-      box-shadow: inset 0 0 0 1px #c5bca8; transition: box-shadow 0.15s;
+      box-shadow: inset 0 0 0 1px #3a4a3f; transition: box-shadow 0.15s;
     }
-    .nav-contact:hover { box-shadow: inset 0 0 0 1px #1c2a22; }
+    .nav-contact:hover { box-shadow: inset 0 0 0 1px #c98a3c; color: #c98a3c; }
 
     /* Hamburger */
     .hamburger {
       display: none; background: none; border: none; cursor: pointer;
       padding: 8px; flex-direction: column; gap: 5px;
     }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1c2a22; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #f2ede3; }
     .mobile-menu {
       display: none; flex-direction: column; gap: 4px;
-      border-top: 1px solid #ddd5c5; padding: 14px 28px 20px;
-      background: rgba(237,231,219,0.95);
+      border-top: 1px solid #2e3c33; padding: 14px 28px 20px;
+      background: rgba(28,42,34,0.95);
     }
     .mobile-menu.open { display: flex; }
-    .mobile-link { font-size: 17px; font-weight: 600; color: #1c2a22; padding: 10px 0; }
+    .mobile-link { font-size: 17px; font-weight: 600; color: #f2ede3; padding: 10px 0; }
     .mobile-link-accent { color: #b5742a; }
 
     @media (max-width: 759px) {
@@ -98,27 +84,27 @@
     }
 
     /* ===== HERO ===== */
-    .hero { position: relative; overflow: hidden; }
-    .hero-topo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.4; pointer-events: none; }
+    .hero { position: relative; overflow: hidden; background: #1c2a22; }
+    .hero-topo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35; pointer-events: none; }
     .hero-inner { position: relative; max-width: 1080px; margin: 0 auto; padding: 96px 28px 84px; }
     .hero-location {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
-      text-transform: uppercase; color: #7c8b5f; margin-bottom: 26px;
+      text-transform: uppercase; color: #9aa595; margin-bottom: 26px;
     }
     .hero-dot { width: 7px; height: 7px; border-radius: 50%; background: #c98a3c; }
     .hero-name {
       font-weight: 900; font-size: clamp(44px, 8vw, 92px);
       line-height: 0.96; letter-spacing: -0.03em;
-      color: #1c2a22; margin: 0 0 22px; max-width: 11ch;
+      color: #f2ede3; margin: 0 0 22px; max-width: 11ch;
     }
     .hero-title {
       font-weight: 600; font-size: clamp(17px, 2.4vw, 22px);
-      color: #b5742a; margin: 0 0 28px; letter-spacing: 0.01em;
+      color: #c98a3c; margin: 0 0 28px; letter-spacing: 0.01em;
     }
     .hero-bio {
       font-weight: 400; font-size: clamp(16px, 1.6vw, 18px);
-      line-height: 1.62; color: #555d51; max-width: 56ch; margin: 0 0 40px;
+      line-height: 1.62; color: #b0b8a8; max-width: 56ch; margin: 0 0 40px;
     }
     .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
     .btn-primary {
@@ -130,11 +116,11 @@
     .btn-primary:hover { background: #b5742a; }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 9px;
-      font-size: 15px; font-weight: 600; color: #1c2a22;
+      font-size: 15px; font-weight: 600; color: #f2ede3;
       background: transparent; padding: 13px 22px; border-radius: 10px;
-      box-shadow: inset 0 0 0 1px #c5bca8; transition: box-shadow 0.15s;
+      box-shadow: inset 0 0 0 1px #3a4a3f; transition: box-shadow 0.15s;
     }
-    .btn-secondary:hover { box-shadow: inset 0 0 0 1px #1c2a22; }
+    .btn-secondary:hover { box-shadow: inset 0 0 0 1px #f2ede3; }
 
     /* ===== SECTIONS ===== */
     .section-alt { background: #e7e0d1; border-top: 1px solid #ddd5c5; border-bottom: 1px solid #ddd5c5; }
@@ -152,10 +138,12 @@
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
     .card {
       display: block; background: #f8f4eb; border: 1px solid #ddd5c5;
+      border-left: 3px solid #c98a3c;
       border-radius: 16px; padding: 30px;
+      box-shadow: 0 4px 12px rgba(28,42,34,0.06);
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(28,42,34,0.1); border-color: #c98a3c; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(28,42,34,0.12); border-color: #c98a3c; }
     .card-num { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #b5742a; margin-bottom: 18px; }
     .card-title { font-weight: 700; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: #1c2a22; margin: 0 0 12px; }
     .card-desc { font-size: 15px; line-height: 1.58; color: #555d51; margin: 0 0 22px; }
@@ -182,8 +170,9 @@
     .contact-heading {
       font-weight: 900; font-size: clamp(36px, 6.5vw, 72px);
       line-height: 0.98; letter-spacing: -0.03em;
-      color: #1c2a22; margin: 0 0 32px; max-width: 14ch;
+      color: #f2ede3; margin: 0 0 32px; max-width: 14ch;
     }
+    .contact-section { background: #1c2a22; }
     .contact-grid { display: flex; flex-wrap: wrap; gap: 32px 56px; margin-bottom: 80px; }
     .contact-label {
       font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
@@ -191,13 +180,13 @@
     }
     .contact-link {
       font-size: clamp(17px, 2vw, 20px); font-weight: 600;
-      color: #1c2a22; border-bottom: 2px solid #c98a3c;
+      color: #f2ede3; border-bottom: 2px solid #c98a3c;
       padding-bottom: 2px; transition: color 0.15s;
     }
-    .contact-link:hover { color: #b5742a; }
+    .contact-link:hover { color: #c98a3c; }
     .footer {
       display: flex; flex-wrap: wrap; justify-content: space-between;
-      gap: 12px; padding-top: 28px; border-top: 1px solid #ddd5c5;
+      gap: 12px; padding-top: 28px; border-top: 1px solid #2e3c33;
       font-size: 13.5px; color: #7c8b5f;
     }
 
@@ -216,6 +205,7 @@
     <div class="nav-inner">
       <a href="#top" class="nav-logo">Seco Arias</a>
       <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#education" class="nav-link">Education</a>
@@ -226,6 +216,7 @@
       </button>
     </div>
     <div id="mobile-menu" class="mobile-menu">
+      <a href="#about" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">About</a>
       <a href="#projects" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Projects</a>
       <a href="#skills" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Skills</a>
       <a href="#education" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Education</a>
@@ -236,7 +227,7 @@
   <!-- ================= HERO ================= -->
   <section id="top" class="hero">
     <svg class="hero-topo" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-      <g fill="none" stroke="#7c8b5f" stroke-width="1.1" opacity="0.5">
+      <g fill="none" stroke="#7c8b5f" stroke-width="1.1" opacity="0.3">
         <path d="M-50 180 Q 300 60 650 150 T 1300 120"/>
         <path d="M-50 230 Q 300 110 650 200 T 1300 175"/>
         <path d="M-50 285 Q 300 165 650 255 T 1300 235"/>
@@ -257,16 +248,32 @@
       <div class="hero-buttons">
         <a href="mailto:juandejesuseco1204@gmail.com" class="btn-primary">Email</a>
         <a href="https://linkedin.com/in/secoj" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
-        <a href="https://github.com/juanseco" target="_blank" rel="noopener" class="btn-secondary">GitHub</a>
+        <a href="https://github.com/jjseco" target="_blank" rel="noopener" class="btn-secondary">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section-alt">
+    <div class="section-inner">
+      <div class="section-eyebrow">
+        <span class="section-num">01</span>
+        <span class="section-label">About</span>
+      </div>
+      <h2 class="section-title" style="margin-bottom: 32px;">Hi, I'm Juan.</h2>
+      <div style="max-width: 680px;">
+        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0 0 24px;">Environmental scientist with a Biology background and a completed Master in Environmental Rehabilitation from UWA. I started my career in Colombia doing contaminated land assessments, soil and groundwater sampling, and writing compliance reports. I also spent four years teaching environmental education to over 500 students, which taught me how to communicate complex ideas to very different audiences. Along the way I published a peer-reviewed paper in biochemistry from my bachelor's thesis.</p>
+        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0 0 24px;">I moved to Western Australia to specialise in rehabilitation. Since then I've interned at DWER, built open-source environmental tools with Python and GIS, and volunteered at Kanyana Wildlife Rehabilitation Centre, where helping recover native fauna gave me a real connection with Australian landscapes and conservation beyond the technical work.</p>
+        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0;">I'm looking for opportunities in mine site rehabilitation and contaminated land remediation in WA. This is where I share the tools I build along the way.</p>
       </div>
     </div>
   </section>
 
   <!-- ================= PROJECTS ================= -->
-  <section id="projects" class="section-alt">
+  <section id="projects" style="background: #f4efe6;">
     <div class="section-inner">
       <div class="section-eyebrow">
-        <span class="section-num">01</span>
+        <span class="section-num">02</span>
         <span class="section-label">Selected Work</span>
       </div>
       <h2 class="section-title">Projects</h2>
@@ -287,9 +294,9 @@
         </a>
 
         <!-- ====== PROJECT CARD 2 ====== -->
-        <a href="#" class="card">
+        <a href="https://wa-environmental-screening-tool.streamlit.app/" class="card" target="_blank" rel="noopener">
           <div class="card-num">02</div>
-          <h3 class="card-title">WA Preliminary Environmental Screening Tool</h3>
+          <h3 class="card-title">Preliminary Environmental Screening Tool for Western Australian Sites</h3>
           <p class="card-desc">Open-source screening application integrating 20+ spatial layers across seven environmental themes for preliminary site assessment in Western Australia.</p>
           <div class="card-tags">
             <span class="tag">Python</span>
@@ -322,10 +329,10 @@
   </section>
 
   <!-- ================= SKILLS ================= -->
-  <section id="skills">
+  <section id="skills" style="background: #f4efe6;">
     <div class="section-inner">
       <div class="section-eyebrow">
-        <span class="section-num">02</span>
+        <span class="section-num">03</span>
         <span class="section-label">Capabilities</span>
       </div>
       <h2 class="section-title" style="margin-bottom: 44px;">Skills &amp; Competencies</h2>
@@ -334,32 +341,37 @@
 
         <div class="skill-card">
           <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Remote Sensing &amp; Earth Observation</h3></div>
-          <p class="skill-list">Satellite imagery analysis, NDVI, Google Earth Engine, change detection</p>
+          <p class="skill-list">Satellite and aerial imagery analysis, spectral indices, radiometric correction, Google Earth Engine, change detection applied to vegetation monitoring, rehabilitation tracking and land condition assessment</p>
         </div>
 
         <div class="skill-card">
           <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">GIS &amp; Spatial Analysis</h3></div>
-          <p class="skill-list">QGIS, ArcGIS Pro, GeoPandas, Folium</p>
+          <p class="skill-list">QGIS, ArcGIS Pro, GeoPandas, Google Earth Engine, Folium. Applied to environmental approvals, ecological surveys, mine closure planning, rehabilitation monitoring and cartographic deliverables with QA/QC</p>
         </div>
 
         <div class="skill-card">
           <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Programming &amp; Data</h3></div>
-          <p class="skill-list">Python, R, Streamlit, statistical analysis, automation</p>
+          <p class="skill-list">Python for data processing pipelines, automation and spatial analysis. R for statistical interpretation and data visualisation. Streamlit for web application development. Reproducible reporting and workflow automation</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Field &amp; Assessment</h3></div>
+          <p class="skill-list">Site assessments, soil and groundwater sampling, validation sampling, chain-of-custody, QA/QC, site inspections, field team coordination, biological sampling and taxonomic identification</p>
         </div>
 
         <div class="skill-card">
           <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Environmental Rehabilitation</h3></div>
-          <p class="skill-list">Rehabilitation monitoring, soil management, ecological assessment, revegetation, landform design</p>
+          <p class="skill-list">Rehabilitation planning and monitoring design, mine site environmental management, mine closure considerations, soil management, ecological assessment, measuring outcomes in disturbed landscapes</p>
         </div>
 
         <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Regulatory Knowledge</h3></div>
-          <p class="skill-list">Mining Act 1978, EP Act 1986, Contaminated Sites Act 2003, NEPM</p>
+          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Regulatory &amp; Compliance</h3></div>
+          <p class="skill-list">WA and national frameworks: Contaminated Sites Act 2003, EP Act 1986, Mining Act 1978, NEPM. Translating regulatory standards into compliant field programs and defensible technical reporting</p>
         </div>
 
         <div class="skill-card">
           <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Technical Communication</h3></div>
-          <p class="skill-list">Compliance reports, environmental management plans, stakeholder engagement</p>
+          <p class="skill-list">Compliance reports, environmental management plans, briefing notes, technical reporting, stakeholder engagement across field teams, regulators and community groups</p>
         </div>
 
       </div>
@@ -370,7 +382,7 @@
   <section id="education" class="section-alt">
     <div class="section-inner">
       <div class="section-eyebrow">
-        <span class="section-num">03</span>
+        <span class="section-num">04</span>
         <span class="section-label">Education</span>
       </div>
       <h2 class="section-title" style="margin-bottom: 40px;">Education</h2>
@@ -385,10 +397,10 @@
   </section>
 
   <!-- ================= CONTACT / FOOTER ================= -->
-  <section id="contact">
+  <section id="contact" class="contact-section">
     <div style="max-width: 1080px; margin: 0 auto; padding: 96px 28px 56px;">
       <div class="section-eyebrow" style="margin-bottom: 18px;">
-        <span class="section-num">04</span>
+        <span class="section-num">05</span>
         <span class="section-label">Contact</span>
       </div>
       <h2 class="contact-heading">Let's work together.</h2>
@@ -403,7 +415,7 @@
         </div>
         <div>
           <div class="contact-label">GitHub</div>
-          <a href="https://github.com/juanseco" target="_blank" rel="noopener" class="contact-link">github.com/juanseco</a>
+          <a href="https://github.com/jjseco" target="_blank" rel="noopener" class="contact-link">github.com/jjseco</a>
         </div>
       </div>
       <div class="footer">
