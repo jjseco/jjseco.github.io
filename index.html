@@ -3,465 +3,711 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Juan Seco Arias — Environmental Scientist</title>
-  <meta name="description" content="Environmental scientist specialising in environmental rehabilitation, GIS, remote sensing, and spatial data analysis in Western Australia.">
+  <title>Juan Seco Arias, Environmental Scientist</title>
+  <meta name="description" content="Environmental Scientist based in Perth, Western Australia. Environmental assessment, rehabilitation, GIS and spatial analysis.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232A2D2E'/%3E%3Crect x='1.5' y='1.5' width='29' height='29' rx='5' fill='none' stroke='%23F5F2EB' stroke-width='2'/%3E%3Cline x1='9' y1='16' x2='23' y2='16' stroke='%23D4897A' stroke-width='2.3'/%3E%3Cline x1='16' y1='9' x2='16' y2='23' stroke='%23D4897A' stroke-width='2.3'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ===== RESET & BASE ===== */
+    /* =========================================================
+       DESIGN TOKENS — luminous seasonal palette: cream, terracotta, eucalyptus, amber
+       --sage   = terracotta / coral accent (CTAs, links, highlights)
+       --steel  = muted eucalyptus accent (tags, metadata, technical labels)
+       --brown  = golden amber accent (hover states, subtle warmth)
+       .section-dark reassigns the same tokens for the warm charcoal hero/nav/contact/footer bookends.
+    ========================================================= */
+    :root {
+      --bg:        #FAFAF5;
+      --bg-alt:    #F0EDE6;
+      --surface:   #FFFFFF;
+      --line:      #E2DDD5;
+      --line-2:    #D2CBBD;
+      --ink:       #2C2C2C;
+      --ink-2:     #6B6B6B;
+      --sage:      #A85D42;
+      --sage-soft: rgba(168, 93, 66, 0.10);
+      --steel:     #4F7256;
+      --steel-soft:rgba(79, 114, 86, 0.10);
+      --brown:     #C49A3C;
+      --brown-soft:rgba(196, 154, 60, 0.12);
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-serif:'Source Serif 4', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
+      --container: 1200px;
+      --r: 3px;
+    }
+
+    .section-dark {
+      --bg:        #2A2D2E;
+      --bg-alt:    #2A2D2E;
+      --surface:   #34383A;
+      --line:      rgba(245,242,235,0.15);
+      --line-2:    rgba(245,242,235,0.26);
+      --ink:       #F5F2EB;
+      --ink-2:     #B8B3A8;
+      --sage:      #D4897A;
+      --sage-soft: rgba(212, 137, 122, 0.16);
+      --steel:     #9DBBA0;
+      --steel-soft:rgba(157, 187, 160, 0.14);
+      --brown:     #E0B25E;
+      --brown-soft:rgba(224, 178, 94, 0.16);
+      background: var(--bg); color: var(--ink);
+    }
+
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; background: #ede7db; font-family: 'Archivo', sans-serif; color: #1c2a22; }
-    section { scroll-margin-top: 84px; }
-    ::selection { background: #c98a3c; color: #1c2a22; }
-    a { text-decoration: none; }
-    img { max-width: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: var(--font-sans); -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    section { scroll-margin-top: 76px; }
+    ::selection { background: var(--sage); color: #FAFAF5; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    p { margin: 0; }
+    h1, h2, h3 { margin: 0; }
+    .mono { font-family: var(--font-mono); }
 
-    /* ===== DARK MODE ===== */
-    @media (prefers-color-scheme: dark) {
-      body { background: #141e18; color: #ede7db; }
-      .nav { background: rgba(20,30,24,0.92); border-bottom-color: #2e3c33; }
-      .hero { background: #141e18; }
-      .section-alt { background: #1c2a22; border-color: #2e3c33; }
-      .section-title { color: #f2ede3; }
-      .section-text { color: #9aa595; }
-      .card { background: #243029; border-color: #2e3c33; }
-      .card:hover { border-color: #c98a3c; box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
-      .card-title { color: #f2ede3; }
-      .card-desc { color: #9aa595; }
-      .card-arrow { color: #f2ede3; }
-      .tag { color: #b0b8a8; background: #2e3c33; }
-      .skill-card { background: #243029; border-color: #2e3c33; }
-      .skill-name { color: #f2ede3; }
-      .skill-list { color: #9aa595; }
-      .edu-title { color: #f2ede3; }
-      .contact-section { background: #141e18; }
-      #skills { background: #182320; }
-      #about p { color: #9aa595; }
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 100;
+      background: var(--ink); color: var(--bg); padding: 10px 16px;
+      font-size: 14px; font-weight: 600; border-radius: var(--r);
+      transition: top 0.15s;
+    }
+    .skip-link:focus { top: 12px; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--steel); outline-offset: 3px; border-radius: 2px;
     }
 
-    /* ===== NAV ===== */
+    /* =========================================================
+       SCROLL REVEAL (progressive enhancement only)
+    ========================================================= */
+    [data-reveal].reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    [data-reveal].reveal.is-visible { opacity: 1; transform: none; }
+
+    /* =========================================================
+       NAV
+    ========================================================= */
     .nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(28,42,34,0.92);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid #2e3c33;
+      background: rgba(42,45,46,0.90);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s, box-shadow 0.25s;
     }
+    .nav.is-scrolled { border-bottom-color: var(--line); box-shadow: 0 4px 20px rgba(20,18,16,0.20); }
     .nav-inner {
-      max-width: 1080px; margin: 0 auto; padding: 0 28px;
-      height: 64px; display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--container); margin: 0 auto; padding: 0 28px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+      gap: 20px;
     }
-    .nav-logo { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; color: #f2ede3; }
-    .nav-links { display: flex; align-items: center; gap: 30px; }
-    .nav-link { font-size: 14.5px; font-weight: 500; color: #9aa595; transition: color 0.15s; }
-    .nav-link:hover { color: #f2ede3; }
-    .nav-contact {
-      font-size: 14.5px; font-weight: 600; color: #f2ede3;
-      padding: 8px 16px; border-radius: 8px;
-      box-shadow: inset 0 0 0 1px #3a4a3f; transition: box-shadow 0.15s;
+    .nav-logo { font-weight: 700; font-size: 15px; letter-spacing: 0.06em; color: var(--ink); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link {
+      position: relative; font-size: 14.5px; font-weight: 500; color: var(--ink-2);
+      padding: 4px 0; transition: color 0.15s;
     }
-    .nav-contact:hover { box-shadow: inset 0 0 0 1px #c98a3c; color: #c98a3c; }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px;
+      background: var(--sage); transition: right 0.2s ease;
+    }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link:hover::after { right: 0; }
 
-    /* Hamburger */
-    .hamburger {
-      display: none; background: none; border: none; cursor: pointer;
-      padding: 8px; flex-direction: column; gap: 5px;
-    }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #f2ede3; }
-    .mobile-menu {
-      display: none; flex-direction: column; gap: 4px;
-      border-top: 1px solid #2e3c33; padding: 14px 28px 20px;
-      background: rgba(28,42,34,0.95);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-link { font-size: 17px; font-weight: 600; color: #f2ede3; padding: 10px 0; }
-    .mobile-link-accent { color: #b5742a; }
-
-    @media (max-width: 759px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+    @media (max-width: 480px) {
+      .nav-inner { padding: 0 18px; }
+      .nav-links { gap: 16px; }
+      .nav-link { font-size: 13.5px; }
     }
 
-    /* ===== HERO ===== */
-    .hero { position: relative; overflow: hidden; background: #1c2a22; }
-    .hero-topo { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35; pointer-events: none; }
-    .hero-inner { position: relative; max-width: 1080px; margin: 0 auto; padding: 96px 28px 84px; }
-    .hero-location {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
-      text-transform: uppercase; color: #9aa595; margin-bottom: 26px;
+    /* =========================================================
+       LAYOUT HELPERS
+    ========================================================= */
+    .wrap { max-width: var(--container); margin: 0 auto; padding: 0 28px; }
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
     }
-    .hero-dot { width: 7px; height: 7px; border-radius: 50%; background: #c98a3c; }
-    .hero-name {
-      font-weight: 900; font-size: clamp(44px, 8vw, 92px);
-      line-height: 0.96; letter-spacing: -0.03em;
-      color: #f2ede3; margin: 0 0 22px; max-width: 11ch;
+    .eyebrow-label {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-2);
     }
-    .hero-title {
-      font-weight: 600; font-size: clamp(17px, 2.4vw, 22px);
-      color: #c98a3c; margin: 0 0 28px; letter-spacing: 0.01em;
+    .eyebrow-rule { flex: 1 1 auto; height: 1px; background: var(--line); max-width: 64px; }
+
+    .section-alt { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero { padding: 76px 0 84px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
+    .hero-eyebrow {
+      font-family: var(--font-mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-2); margin: 0 0 26px;
+    }
+    .hero-headline {
+      font-family: var(--font-serif); font-weight: 500; font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.12; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 28px;
     }
     .hero-bio {
-      font-weight: 400; font-size: clamp(16px, 1.6vw, 18px);
-      line-height: 1.62; color: #b0b8a8; max-width: 56ch; margin: 0 0 40px;
+      font-size: clamp(16px, 1.3vw, 18px); line-height: 1.65; color: var(--ink-2);
+      max-width: 46ch; margin: 0 0 36px;
     }
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-size: 15px; font-weight: 600; color: #1c2a22;
-      background: #c98a3c; padding: 13px 22px; border-radius: 10px;
-      transition: background 0.15s;
+    .hero-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-bottom: 40px; }
+    .cta-primary, .cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 600; color: var(--ink);
+      border-bottom: 1.5px solid var(--ink); padding-bottom: 3px;
+      transition: color 0.15s, border-color 0.15s, gap 0.15s;
     }
-    .btn-primary:hover { background: #b5742a; }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-size: 15px; font-weight: 600; color: #f2ede3;
-      background: transparent; padding: 13px 22px; border-radius: 10px;
-      box-shadow: inset 0 0 0 1px #3a4a3f; transition: box-shadow 0.15s;
-    }
-    .btn-secondary:hover { box-shadow: inset 0 0 0 1px #f2ede3; }
+    .cta-primary:hover, .cta-secondary:hover { color: var(--sage); border-color: var(--sage); gap: 12px; }
+    .cta-secondary { border-color: var(--line-2); color: var(--ink-2); font-weight: 500; }
+    .cta-secondary:hover { color: var(--brown); border-color: var(--brown); }
 
-    /* ===== SECTIONS ===== */
-    .section-alt { background: #e7e0d1; border-top: 1px solid #ddd5c5; border-bottom: 1px solid #ddd5c5; }
-    .section-inner { max-width: 1080px; margin: 0 auto; padding: 84px 28px; }
-    .section-eyebrow { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
-    .section-num { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #b5742a; }
-    .section-label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7c8b5f; }
-    .section-title {
-      font-weight: 800; font-size: clamp(32px, 5vw, 48px);
-      line-height: 1.04; letter-spacing: -0.02em; color: #1c2a22; margin: 0 0 14px;
+    .hero-specs {
+      display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 22px; border-top: 1px solid var(--line);
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-2);
     }
-    .section-text { font-size: 16px; line-height: 1.6; color: #555d51; max-width: 52ch; margin: 0 0 44px; }
+    .hero-specs strong { color: var(--ink); font-weight: 600; }
 
-    /* ===== PROJECT CARDS ===== */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
-    .card {
-      display: block; background: #f8f4eb; border: 1px solid #ddd5c5;
-      border-left: 3px solid #c98a3c;
-      border-radius: 16px; padding: 30px;
-      box-shadow: 0 4px 12px rgba(28,42,34,0.06);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    .hero-figure { position: relative; }
+    .hero-figure-frame {
+      position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--r);
+      box-shadow: inset 0 0 0 1px var(--line-2);
+      background: var(--surface);
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(28,42,34,0.12); border-color: #c98a3c; }
-    .card-num { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #b5742a; margin-bottom: 18px; }
-    .card-title { font-weight: 700; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: #1c2a22; margin: 0 0 12px; }
-    .card-desc { font-size: 15px; line-height: 1.58; color: #555d51; margin: 0 0 22px; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-    .tag { font-size: 12.5px; font-weight: 500; color: #4a5340; background: #e4e5d5; padding: 5px 12px; border-radius: 20px; }
-    .card-arrow { display: inline-flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 600; color: #1c2a22; }
-    .card-arrow-icon { color: #c98a3c; }
-
-    /* ===== SKILLS ===== */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-    .skill-card { background: #f8f4eb; border: 1px solid #ddd5c5; border-radius: 14px; padding: 26px; }
-    .skill-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-    .skill-dot { width: 9px; height: 9px; border-radius: 2px; background: #7c8b5f; }
-    .skill-name { font-weight: 700; font-size: 16px; color: #1c2a22; margin: 0; }
-    .skill-list { font-size: 14.5px; line-height: 1.65; color: #555d51; margin: 0; }
-
-    /* ===== EDUCATION ===== */
-    .edu-row { display: flex; gap: 22px; align-items: flex-start; max-width: 740px; }
-    .edu-dot { flex: none; margin-top: 7px; width: 12px; height: 12px; border-radius: 3px; background: #c98a3c; }
-    .edu-title { font-weight: 700; font-size: clamp(20px, 3vw, 26px); line-height: 1.25; color: #1c2a22; margin: 0 0 8px; }
-    .edu-school { font-size: 16px; font-weight: 500; color: #7c8b5f; margin: 0; }
-
-    /* ===== CONTACT ===== */
-    .contact-heading {
-      font-weight: 900; font-size: clamp(36px, 6.5vw, 72px);
-      line-height: 0.98; letter-spacing: -0.03em;
-      color: #f2ede3; margin: 0 0 32px; max-width: 14ch;
+    .hero-figure-frame img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
     }
-    .contact-section { background: #1c2a22; }
-    .contact-grid { display: flex; flex-wrap: wrap; gap: 32px 56px; margin-bottom: 80px; }
-    .contact-label {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: #7c8b5f; margin-bottom: 8px;
+    .hero-figure-frame::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      box-shadow: inset 0 0 44px rgba(0,0,0,0.10);
     }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+      .hero-figure { order: -1; max-width: 340px; margin: 0 auto; }
+    }
+
+    /* =========================================================
+       SELECTED WORK
+    ========================================================= */
+    .work-section { padding: 100px 0 96px; }
+    .work-head { max-width: 640px; margin-bottom: 56px; }
+    .work-title { font-size: clamp(28px, 3.6vw, 40px); font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px; }
+    .work-text { font-size: 16.5px; line-height: 1.6; color: var(--ink-2); max-width: 56ch; margin: 0 0 18px; }
+    .work-tags { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--steel); }
+
+    /* Editorial grid: every project card shares the same structure and visual weight. */
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+    .project-card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+      overflow: hidden; display: flex; flex-direction: column; height: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover { border-color: var(--brown); box-shadow: 0 14px 34px rgba(196,154,60,0.16); }
+
+    .project-media { display: block; overflow: hidden; aspect-ratio: 16 / 9; }
+    .project-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s ease; }
+    .project-card:hover .project-media img { transform: scale(1.035); }
+
+    .project-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+
+    .project-meta {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 14px;
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em;
+    }
+    .project-num { color: var(--steel); font-weight: 600; }
+    .project-theme { color: var(--ink-2); text-transform: uppercase; }
+
+    .project-title { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 14px; }
+    .project-desc {
+      font-size: 14.5px; line-height: 1.62; color: var(--ink-2); margin: 0 0 20px;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .project-tags {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.03em; color: var(--ink-2);
+      margin-bottom: 18px;
+    }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 600; color: var(--ink);
+      border-bottom: 1.5px solid var(--steel); padding-bottom: 2px; margin-top: auto; align-self: flex-start;
+      transition: gap 0.15s, color 0.15s;
+    }
+    .project-link:hover { gap: 11px; color: var(--steel); }
+
+    @media (max-width: 760px) {
+      .work-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* =========================================================
+       ENVIRONMENTAL CAPABILITIES
+    ========================================================= */
+    .work-how { padding: 92px 0; }
+    .how-head { max-width: 680px; margin-bottom: 52px; }
+    .how-title { font-size: clamp(26px, 3.2vw, 34px); font-weight: 700; letter-spacing: -0.01em; margin: 0 0 16px; }
+    .how-intro { font-size: 16px; line-height: 1.65; color: var(--ink-2); max-width: 62ch; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+    .how-item { padding: 28px 24px 8px 0; border-right: 1px solid var(--line); }
+    .how-item:last-child { border-right: none; }
+    .how-mark { width: 8px; height: 8px; border-radius: 1px; margin-bottom: 16px; }
+    .how-item.env .how-mark { background: var(--sage); }
+    .how-item.spatial .how-mark { background: var(--steel); }
+    .how-name {
+      font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; margin: 0 0 14px; color: var(--ink);
+    }
+    .how-desc { font-size: 14.5px; line-height: 1.58; color: var(--ink-2); margin: 0 0 18px; min-height: 92px; }
+    .how-list { font-size: 13px; line-height: 1.9; color: var(--ink-2); }
+    .how-list span { display: block; }
+
+    @media (max-width: 860px) {
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .how-item { padding: 24px 20px 24px 0; border-bottom: 1px solid var(--line); }
+      .how-item:nth-child(2n) { border-right: none; padding-left: 20px; }
+      .how-desc { min-height: 0; }
+    }
+    @media (max-width: 540px) {
+      .how-grid { grid-template-columns: 1fr; }
+      .how-item { border-right: none !important; padding-left: 0 !important; }
+    }
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+    .about-section { padding: 96px 0; }
+    .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
+    .about-title {
+      font-family: var(--font-serif); font-weight: 500; font-size: clamp(26px, 3.4vw, 36px);
+      letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 26px;
+    }
+    .about-body p { font-size: 16px; line-height: 1.72; color: var(--ink-2); max-width: 58ch; margin: 0 0 20px; }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .progression { display: flex; flex-direction: column; padding-top: 6px; }
+    .prog-step { display: flex; align-items: flex-start; gap: 14px; position: relative; padding-bottom: 34px; }
+    .prog-step:last-child { padding-bottom: 0; }
+    .prog-rail { flex: none; display: flex; flex-direction: column; align-items: center; }
+    .prog-dot { width: 9px; height: 9px; border-radius: 2px; background: var(--line-2); }
+    .prog-step.is-current .prog-dot { background: var(--steel); }
+    .prog-line { flex: 1; width: 1px; background: var(--line); margin-top: 6px; min-height: 24px; }
+    .prog-step:last-child .prog-line { display: none; }
+    .prog-label {
+      font-family: var(--font-mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-2); padding-top: -2px;
+    }
+    .prog-step.is-current .prog-label { color: var(--ink); font-weight: 600; }
+
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       SCIENTIFIC FOUNDATIONS
+    ========================================================= */
+    .research-section { padding: 88px 0; }
+    .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .research-title { font-size: clamp(24px, 3vw, 30px); font-weight: 700; letter-spacing: -0.01em; margin: 0 0 18px; }
+    .research-text { font-size: 15.5px; line-height: 1.68; color: var(--ink-2); max-width: 52ch; }
+
+    .pub-card { border-top: 1px solid var(--line); padding-top: 24px; }
+    .pub-label {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 12px;
+    }
+    .pub-title { font-size: 17px; font-weight: 600; line-height: 1.4; margin: 0 0 10px; max-width: 44ch; }
+    .pub-authors { font-size: 13.5px; color: var(--ink-2); margin: 0 0 6px; }
+    .pub-cite { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); margin: 0 0 16px; }
+    .pub-note { font-size: 14px; line-height: 1.55; color: var(--ink-2); margin: 0 0 18px; max-width: 44ch; }
+    .pub-link {
+      display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: var(--ink);
+      border-bottom: 1.5px solid var(--sage); padding-bottom: 2px; transition: gap 0.15s;
+    }
+    .pub-link:hover { gap: 11px; color: var(--sage); }
+
+    @media (max-width: 860px) { .research-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* =========================================================
+       EDUCATION
+    ========================================================= */
+    .edu-section { padding: 80px 0; }
+    .edu-layout { display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; }
+    .edu-main { flex: 1 1 380px; }
+    .edu-degree { font-size: clamp(19px, 2.2vw, 23px); font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; max-width: 32ch; }
+    .edu-school { font-size: 14.5px; color: var(--ink-2); margin: 0 0 8px; }
+    .edu-meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.03em; color: var(--steel); margin: 0 0 16px; }
+    .edu-note { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); max-width: 48ch; }
+    .edu-other { flex: 1 1 260px; border-left: 1px solid var(--line); padding-left: 28px; }
+    .edu-other-item { margin-bottom: 18px; }
+    .edu-other-item:last-child { margin-bottom: 0; }
+    .edu-other-degree { font-size: 14.5px; font-weight: 600; color: var(--ink); margin: 0 0 3px; }
+    .edu-other-school { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); margin: 0 0 3px; }
+    .edu-other-date { font-family: var(--font-mono); font-size: 11.5px; color: var(--steel); }
+
+    @media (max-width: 640px) { .edu-other { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; } }
+
+    .edu-achievements { margin-top: 44px; padding-top: 32px; border-top: 1px solid var(--line); }
+    .achv-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; max-width: 62ch; }
+    .achv-list li { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); padding-left: 18px; position: relative; }
+    .achv-list li::before {
+      content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px;
+      border-radius: 1px; background: var(--sage);
+    }
+    .achv-list em { font-style: italic; color: var(--ink); }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+    .contact-section { padding: 100px 0 92px; }
+    .contact-title {
+      font-size: clamp(30px, 4.4vw, 48px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.1;
+      margin: 0 0 22px; max-width: 14ch;
+    }
+    .contact-text { font-size: 16.5px; line-height: 1.65; color: var(--ink-2); max-width: 58ch; margin: 0 0 42px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 14px 40px; }
     .contact-link {
-      font-size: clamp(17px, 2vw, 20px); font-weight: 600;
-      color: #f2ede3; border-bottom: 2px solid #c98a3c;
-      padding-bottom: 2px; transition: color 0.15s;
+      display: inline-flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 600; color: var(--ink);
+      border-bottom: 1.5px solid var(--line-2); padding-bottom: 3px; transition: color 0.15s, border-color 0.15s, gap 0.15s;
     }
-    .contact-link:hover { color: #c98a3c; }
-    .footer {
-      display: flex; flex-wrap: wrap; justify-content: space-between;
-      gap: 12px; padding-top: 28px; border-top: 1px solid #2e3c33;
-      font-size: 13.5px; color: #7c8b5f;
+    .contact-link:hover { color: var(--sage); border-color: var(--sage); gap: 11px; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer { background: var(--bg-alt); border-top: 1px solid var(--line); padding: 48px 0 32px; }
+    .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .footer-name { font-weight: 700; font-size: 15px; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .footer-role { font-size: 13.5px; color: var(--ink-2); margin-bottom: 4px; }
+    .footer-role.mono { font-family: var(--font-mono); font-size: 12px; color: var(--steel); }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .footer-link { font-size: 13.5px; font-weight: 500; color: var(--ink-2); transition: color 0.15s; }
+    .footer-link:hover { color: var(--sage); }
+    .footer-bottom {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
+      padding-top: 20px; border-top: 1px solid var(--line);
+      font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-2);
     }
 
-    /* ===== REDUCED MOTION ===== */
+    @media (max-width: 640px) {
+      .footer-top { flex-direction: column; }
+      .footer-links { align-items: flex-start; }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .card { transition: none; }
-      .card:hover { transform: none; }
+      [data-reveal].reveal { opacity: 1; transform: none; transition: none; }
+      .project-media img, .cta-primary, .cta-secondary, .project-link { transition: none; }
+      .project-card:hover .project-media img { transform: none; }
     }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- ================= NAV ================= -->
-  <nav class="nav">
+  <header class="nav section-dark" id="nav">
     <div class="nav-inner">
-      <a href="#top" class="nav-logo">Seco Arias</a>
-      <div class="nav-links">
+      <a href="#top" class="nav-logo">JUAN SECO</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#work" class="nav-link">Work</a>
         <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-contact">Contact</a>
-      </div>
-      <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
-        <span></span><span></span><span></span>
-      </button>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
     </div>
-    <div id="mobile-menu" class="mobile-menu">
-      <a href="#about" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">About</a>
-      <a href="#projects" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Projects</a>
-      <a href="#skills" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Skills</a>
-      <a href="#education" class="mobile-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Education</a>
-      <a href="#contact" class="mobile-link mobile-link-accent" onclick="document.getElementById('mobile-menu').classList.remove('open')">Contact</a>
-    </div>
-  </nav>
+  </header>
 
-  <!-- ================= HERO ================= -->
-  <section id="top" class="hero">
-    <svg class="hero-topo" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-      <g fill="none" stroke="#7c8b5f" stroke-width="1.1" opacity="0.3">
-        <path d="M-50 180 Q 300 60 650 150 T 1300 120"/>
-        <path d="M-50 230 Q 300 110 650 200 T 1300 175"/>
-        <path d="M-50 285 Q 300 165 650 255 T 1300 235"/>
-        <path d="M-50 345 Q 300 230 650 318 T 1300 300"/>
-        <path d="M-50 410 Q 300 300 650 388 T 1300 372"/>
-        <path d="M-50 480 Q 300 378 650 462 T 1300 448"/>
-        <path d="M-50 555 Q 300 460 650 540 T 1300 528"/>
-      </g>
-    </svg>
-    <div class="hero-inner">
-      <div class="hero-location">
-        <span class="hero-dot"></span>
-        Perth, Western Australia
-      </div>
-      <h1 class="hero-name">Juan Seco Arias</h1>
-      <p class="hero-title">Environmental Scientist — Environmental Rehabilitation</p>
-      <p class="hero-bio">Specialising in environmental rehabilitation, with technical skills in GIS, remote sensing, Python, and spatial data analysis across Western Australia.</p>
-      <div class="hero-buttons">
-        <a href="mailto:juandejesuseco1204@gmail.com" class="btn-primary">Email</a>
-        <a href="https://linkedin.com/in/secoj" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
-        <a href="https://github.com/jjseco" target="_blank" rel="noopener" class="btn-secondary">GitHub</a>
-      </div>
-    </div>
-  </section>
+  <main id="main">
 
-  <!-- ================= ABOUT ================= -->
-  <section id="about" class="section-alt">
-    <div class="section-inner">
-      <div class="section-eyebrow">
-        <span class="section-num">01</span>
-        <span class="section-label">About</span>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 32px;">Hi, I'm Juan.</h2>
-      <div style="max-width: 680px;">
-        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0 0 24px;">I'm an environmental scientist from Colombia, now based in Perth. I recently completed a Master of Environmental Science (Environmental Rehabilitation) at The University of Western Australia, and before that I did a Bachelor of Biology, where I published a peer-reviewed paper from my thesis research.</p>
-        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0 0 24px;">My path into environmental work started with a question that still drives me: how do you protect the environment in a way that actually works for the people who depend on it? In Colombia, I co-founded Plasmarilla Foundation, a not-for-profit that delivered soil and water assessment, revegetation and waste management services to rural communities. We worked directly with local stakeholders to restore degraded land, assess environmental risks, and translate findings into practical actions for communities with limited technical resources. I also spent four years as a science teacher and coordinator, which taught me something I still carry: the ability to communicate complex ideas clearly, whether to a regulator, a field team, or a room of nine-year-olds.</p>
-        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0 0 24px;">I came to Western Australia because this is where some of the most significant environmental challenges in mining, rehabilitation and land management are happening, and I wanted to be trained in that context. Since arriving, I have volunteered at Kanyana Wildlife Rehabilitation Centre, working hands-on with injured native fauna including threatened species, and that experience gave me a real connection with Australian landscapes and conservation that goes beyond the technical work.</p>
-        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0 0 24px;">I work with Python, R, QGIS, ArcGIS Pro and Google Earth Engine, and I enjoy building tools that make environmental data more accessible and useful. This site is where I share some of that work.</p>
-        <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.72; color: #555d51; margin: 0;">I'm currently looking for opportunities in environmental consulting, mine site rehabilitation, environmental monitoring and approvals in Western Australia. If our work overlaps, I'd welcome a conversation.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects" style="background: #f4efe6;">
-    <div class="section-inner">
-      <div class="section-eyebrow">
-        <span class="section-num">02</span>
-        <span class="section-label">Selected Work</span>
-      </div>
-      <h2 class="section-title">Projects</h2>
-      <p class="section-text">Tools I've built to make environmental assessment and regulatory work in WA faster and clearer.</p>
-
-      <div class="projects-grid">
-
-        <!-- ====== PROJECT CARD 1 — NEPM TOOL ====== -->
-        <a href="https://jjseco.github.io/nepmtool/" class="card" target="_blank" rel="noopener">
-          <div class="card-num">01</div>
-          <h3 class="card-title">NEPM Assessment of Site Contamination Reference Tool</h3>
-          <p class="card-desc">Interactive reference tool for applying Australia's NEPM ASC framework to contaminated sites. Covers the six-module assessment process: regulatory framework, land-use scenarios (HIL A–D), screening levels, Tier 1 comparison calculator, full end-to-end process navigator, and acid sulfate soils guidance for WA.</p>
-          <div class="card-tags">
-            <span class="tag">React</span>
-            <span class="tag">Tailwind CSS</span>
-          </div>
-          <span class="card-arrow">View tool <span class="card-arrow-icon">→</span></span>
-        </a>
-
-        <!-- ====== PROJECT CARD 2 ====== -->
-        <a href="https://wa-environmental-screening-tool.streamlit.app/" class="card" target="_blank" rel="noopener">
-          <div class="card-num">02</div>
-          <h3 class="card-title">Preliminary Environmental Screening Tool for Western Australian Sites</h3>
-          <p class="card-desc">Open-source screening application integrating 20+ spatial layers across seven environmental themes for preliminary site assessment in Western Australia.</p>
-          <div class="card-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Streamlit</span>
-            <span class="tag">GeoPandas</span>
-            <span class="tag">Folium</span>
-          </div>
-          <span class="card-arrow">View tool <span class="card-arrow-icon">→</span></span>
-        </a>
-
-        <!-- ====== PROJECT CARD 3 ====== -->
-        <a href="https://storymaps.arcgis.com/stories/c10a75b54a204f2bbcbb98794d031131" class="card" target="_blank" rel="noopener">
-          <div class="card-num">03</div>
-          <h3 class="card-title">Lake Toolibin Multi-Temporal Vegetation Analysis</h3>
-          <p class="card-desc">Long-term vegetation recovery assessment at Toolibin Lake using multi-temporal remote sensing and spectral analysis from 1995 to 2025.</p>
-          <div class="card-tags">
-            <span class="tag">ArcGIS StoryMaps</span>
-            <span class="tag">Remote Sensing</span>
-            <span class="tag">Google Earth Engine</span>
-          </div>
-          <span class="card-arrow">View project <span class="card-arrow-icon">→</span></span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SKILLS ================= -->
-  <section id="skills" style="background: #f4efe6;">
-    <div class="section-inner">
-      <div class="section-eyebrow">
-        <span class="section-num">03</span>
-        <span class="section-label">Capabilities</span>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 44px;">Skills &amp; Competencies</h2>
-
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Remote Sensing &amp; Earth Observation</h3></div>
-          <p class="skill-list">Satellite and aerial imagery analysis, spectral indices, radiometric correction, Google Earth Engine, change detection applied to vegetation monitoring, rehabilitation tracking and land condition assessment</p>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">GIS &amp; Spatial Analysis</h3></div>
-          <p class="skill-list">QGIS, ArcGIS Pro, GeoPandas, Google Earth Engine, Folium. Applied to environmental approvals, ecological surveys, mine closure planning, rehabilitation monitoring and cartographic deliverables with QA/QC</p>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Programming &amp; Data</h3></div>
-          <p class="skill-list">Python for data processing pipelines, automation and spatial analysis. R for statistical interpretation and data visualisation. Streamlit for web application development. Reproducible reporting and workflow automation</p>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Field &amp; Assessment</h3></div>
-          <p class="skill-list">Site assessments, soil and groundwater sampling, validation sampling, chain-of-custody, QA/QC, site inspections, field team coordination, biological sampling and taxonomic identification</p>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Environmental Rehabilitation</h3></div>
-          <p class="skill-list">Rehabilitation planning and monitoring design, mine site environmental management, mine closure considerations, soil management, ecological assessment, measuring outcomes in disturbed landscapes</p>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Regulatory &amp; Compliance</h3></div>
-          <p class="skill-list">WA and national frameworks: Contaminated Sites Act 2003, EP Act 1986, Mining Act 1978, NEPM. Translating regulatory standards into compliant field programs and defensible technical reporting</p>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-header"><span class="skill-dot"></span><h3 class="skill-name">Technical Communication</h3></div>
-          <p class="skill-list">Compliance reports, environmental management plans, briefing notes, technical reporting, stakeholder engagement across field teams, regulators and community groups</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= EDUCATION ================= -->
-  <section id="education" class="section-alt">
-    <div class="section-inner">
-      <div class="section-eyebrow">
-        <span class="section-num">04</span>
-        <span class="section-label">Education</span>
-      </div>
-      <h2 class="section-title" style="margin-bottom: 40px;">Education</h2>
-
-      <div style="display: flex; flex-direction: column; gap: 36px;">
-
-        <div class="edu-row">
-          <span class="edu-dot"></span>
-          <div>
-            <h3 class="edu-title">Master of Environmental Science (Environmental Rehabilitation)</h3>
-            <p class="edu-school">The University of Western Australia, Perth</p>
-          </div>
-        </div>
-
-        <div class="edu-row">
-          <span class="edu-dot"></span>
-          <div>
-            <h3 class="edu-title">Graduate Certificate in Environmental Management</h3>
-            <p class="edu-school">University Foundation of the Andean Region, Colombia</p>
-          </div>
-        </div>
-
-        <div class="edu-row">
-          <span class="edu-dot"></span>
-          <div>
-            <h3 class="edu-title">Bachelor of Biology</h3>
-            <p class="edu-school">Industrial University of Santander, Colombia</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid #ddd5c5;">
-        <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px;">
-          <span class="section-num">&#9679;</span>
-          <span class="section-label">Publication</span>
-        </div>
-        <div style="background: #f8f4eb; border: 1px solid #ddd5c5; border-left: 3px solid #c98a3c; border-radius: 16px; padding: 30px; max-width: 680px;">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c98a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            <span style="font-size: 12.5px; font-weight: 600; color: #7c8b5f; letter-spacing: 0.06em; text-transform: uppercase;">Peer-Reviewed Research</span>
-          </div>
-          <a href="https://www.cell.com/biophysj/fulltext/S0006-3495(18)30963-9" target="_blank" rel="noopener" style="display: block; text-decoration: none;">
-            <h3 style="font-weight: 700; font-size: 18px; line-height: 1.35; color: #1c2a22; margin: 0 0 12px;">The Dimer-of-Trimers Assembly Prevents Catalysis at the Transferase Site of Prokaryotic FAD Synthase</h3>
-            <p style="font-size: 14px; line-height: 1.55; color: #555d51; margin: 0 0 12px;">Lans I., <strong>Seco J.</strong>, Serrano A., Burbano R., Cossio P., Daza M.C., Medina M.</p>
-            <p style="font-size: 13px; color: #7c8b5f; margin: 0 0 16px;"><em>Biophysical Journal</em>, Volume 115, Issue 6, pp. 988-995. Cell Press, 2018.</p>
-            <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #1c2a22;">Read paper <span style="color: #c98a3c;">→</span></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT / FOOTER ================= -->
-  <section id="contact" class="contact-section">
-    <div style="max-width: 1080px; margin: 0 auto; padding: 96px 28px 56px;">
-      <div class="section-eyebrow" style="margin-bottom: 18px;">
-        <span class="section-num">05</span>
-        <span class="section-label">Contact</span>
-      </div>
-      <h2 class="contact-heading">Let's work together.</h2>
-      <div class="contact-grid">
+    <!-- ================= HERO ================= -->
+    <section id="top" class="hero section-dark">
+      <div class="wrap hero-grid">
         <div>
-          <div class="contact-label">Email</div>
-          <a href="mailto:juandejesuseco1204@gmail.com" class="contact-link">juandejesuseco1204@gmail.com</a>
+          <h1 class="hero-headline">Juan Seco Arias<br>Environmental Scientist</h1>
+          <p class="hero-bio">I am an Environmental Scientist and Biologist based in Perth, with experience across environmental assessment, ecological rehabilitation, monitoring and field-based environmental projects. I use GIS, remote sensing and environmental data analysis alongside field evidence to understand environmental conditions and support environmental decisions.</p>
+          <div class="hero-ctas">
+            <a href="#work" class="cta-primary">Explore selected work <span aria-hidden="true">↓</span></a>
+            <a href="https://linkedin.com/in/secoj" target="_blank" rel="noopener" class="cta-secondary">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="mailto:juandejesusseco1204@gmail.com" class="cta-secondary">Email <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-specs">
+            <span><strong>Perth</strong> / Western Australia</span>
+            <span>Environmental Science · Assessment · Rehabilitation · GIS</span>
+          </div>
         </div>
-        <div>
-          <div class="contact-label">LinkedIn</div>
-          <a href="https://linkedin.com/in/secoj" target="_blank" rel="noopener" class="contact-link">linkedin.com/in/secoj</a>
-        </div>
-        <div>
-          <div class="contact-label">GitHub</div>
-          <a href="https://github.com/jjseco" target="_blank" rel="noopener" class="contact-link">github.com/jjseco</a>
+        <div class="hero-figure">
+          <div class="hero-figure-frame">
+            <img src="images/portrait.jpeg" width="1086" height="1448" alt="Portrait of Juan Seco Arias, Environmental Scientist." loading="eager" fetchpriority="high">
+          </div>
         </div>
       </div>
-      <div class="footer">
-        <span>Perth, Western Australia</span>
+    </section>
+
+    <!-- ================= SELECTED WORK ================= -->
+    <section id="work" class="work-section section-alt">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-label">Selected Work</span><span class="eyebrow-rule"></span></div>
+        <div class="work-head" data-reveal>
+          <h2 class="work-title">Selected work</h2>
+          <p class="work-text">A selection of environmental projects covering site assessment, contaminated land, ecological fieldwork, remote sensing and environmental data analysis.</p>
+          <p class="work-tags">Assessment · GIS · Automation · Remote Sensing</p>
+        </div>
+
+        <div class="work-grid">
+
+          <!-- PROJECT 01: WA Environmental Screening Tool -->
+          <article class="project-card project-01" data-reveal>
+            <a class="project-media" href="https://wa-environmental-screening-tool.streamlit.app/" target="_blank" rel="noopener" aria-label="Open the WA Environmental Screening Tool (opens in a new tab)">
+              <img src="images/project-01.webp" width="1200" height="832" alt="Screenshot of the WA Environmental Screening Tool showing a risk summary across seven environmental themes." loading="lazy">
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span class="project-num">Project 01</span><span class="project-theme">Environmental Assessment · GIS · Python</span></div>
+              <h3 class="project-title">WA Environmental Screening Tool</h3>
+              <p class="project-desc">I developed this tool to explore how environmental constraints can be identified more efficiently during the early assessment of a site. It brings together more than 20 Western Australian government spatial datasets covering wetlands, acid sulfate soils, groundwater, contaminated sites, heritage, sensitive receptors and other environmental considerations. The project combines environmental assessment, GIS and Python to produce an initial picture of potential constraints that may require further investigation.</p>
+              <p class="project-tags">GIS · Python · GeoPandas · Environmental Assessment</p>
+              <a class="project-link" href="https://wa-environmental-screening-tool.streamlit.app/" target="_blank" rel="noopener">Explore project <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- PROJECT 02: NEPM Assessment Tool -->
+          <article class="project-card project-02" data-reveal>
+            <a class="project-media" href="https://jjseco.github.io/nepmtool/" target="_blank" rel="noopener" aria-label="Open the NEPM Assessment Tool (opens in a new tab)">
+              <img src="images/project-02.webp" width="1400" height="731" alt="Screenshot of the NEPM Assessment Tool showing the site contamination assessment framework overview." loading="lazy">
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span class="project-num">Project 02</span><span class="project-theme">Contaminated Land · Environmental Assessment</span></div>
+              <h3 class="project-title">NEPM Assessment Tool</h3>
+              <p class="project-desc">I developed this interactive tool while building my understanding of contaminated land assessment in Australia. It brings together key concepts from the National Environment Protection (Assessment of Site Contamination) Measure and explores how Tier 1 assessment logic can be organised into a practical workflow. The tool is intended to support understanding and navigation of the assessment framework, not to replace site investigation or professional interpretation.</p>
+              <p class="project-tags">Contaminated Land · NEPM · Environmental Assessment · Interactive Tool</p>
+              <a class="project-link" href="https://jjseco.github.io/nepmtool/" target="_blank" rel="noopener">Explore tool <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <!-- PROJECT 03: Lake Toolibin Vegetation Change -->
+          <article class="project-card project-03" data-reveal>
+            <a class="project-media" href="https://storymaps.arcgis.com/stories/c10a75b54a204f2bbcbb98794d031131" target="_blank" rel="noopener" aria-label="Open the Lake Toolibin StoryMap (opens in a new tab)">
+              <img src="images/project-03.webp" width="2000" height="873" alt="Aerial and ground photography from the Lake Toolibin multi-temporal vegetation analysis, Western Australia." loading="lazy">
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span class="project-num">Project 03</span><span class="project-theme">Remote Sensing · Environmental Change</span></div>
+              <h3 class="project-title">Lake Toolibin Vegetation Change</h3>
+              <p class="project-desc">A remote sensing project examining long-term vegetation change around Lake Toolibin in Western Australia. I used multi-temporal satellite imagery and spatial analysis to investigate how vegetation patterns changed over approximately three decades and to interpret those changes in their environmental context.</p>
+              <p class="project-tags">Remote Sensing · GIS · Vegetation Change · Satellite Imagery</p>
+              <a class="project-link" href="https://storymaps.arcgis.com/stories/c10a75b54a204f2bbcbb98794d031131" target="_blank" rel="noopener">Explore project <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- PROJECT 04: Narrikup native small mammal study -->
+          <article class="project-card project-04" data-reveal>
+            <a class="project-media" href="https://jjseco.github.io/narrikup-mammal-study.pdf" target="_blank" rel="noopener" aria-label="View the Narrikup mammal study report, PDF, opens in a new tab">
+              <img src="images/project-04.webp" width="2000" height="444" alt="Camera trap and vegetation survey photography from the Narrikup native small mammal study, south-western Western Australia." loading="lazy">
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span class="project-num">Project 04</span><span class="project-theme">Ecological Assessment · Field Survey</span></div>
+              <h3 class="project-title">Native Small Mammal Persistence in Fragmented Landscapes, Narrikup WA</h3>
+              <p class="project-desc">A field ecology study investigating native small mammal persistence and predator pressure across remnant vegetation patches in south-western Western Australia. The project combined camera trapping, vegetation surveys, GIS and statistical analysis in R to examine relationships between habitat condition, landscape context and species observations.</p>
+              <p class="project-tags">Ecological Assessment · Camera Trapping · R · ArcGIS Pro · Field Survey</p>
+              <a class="project-link" href="https://jjseco.github.io/narrikup-mammal-study.pdf" target="_blank" rel="noopener">View report <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ENVIRONMENTAL CAPABILITIES ================= -->
+    <section class="work-how section-alt">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-label">Capabilities</span><span class="eyebrow-rule"></span></div>
+        <div class="how-head" data-reveal>
+          <h2 class="how-title">Environmental capabilities</h2>
+          <p class="how-intro">My experience combines field-based environmental work with assessment, spatial analysis and technical reporting. I am comfortable working from field observations and monitoring data through to analysis, interpretation and communication of environmental findings.</p>
+        </div>
+
+        <div class="how-grid" data-reveal>
+          <div class="how-item env">
+            <span class="how-mark" aria-hidden="true"></span>
+            <h3 class="how-name">Field &amp; Monitoring</h3>
+            <p class="how-desc">Field-based environmental work, including site inspections, monitoring and data collection.</p>
+            <p class="how-list"><span>Site inspections</span><span>Environmental monitoring</span><span>Soil and water sampling</span><span>Fauna and vegetation</span><span>Field data collection</span></p>
+          </div>
+          <div class="how-item spatial">
+            <span class="how-mark" aria-hidden="true"></span>
+            <h3 class="how-name">Assessment &amp; Rehabilitation</h3>
+            <p class="how-desc">Environmental assessment and rehabilitation planning, including contaminated land and environmental risk.</p>
+            <p class="how-list"><span>Environmental assessment</span><span>Environmental risk</span><span>Ecological rehabilitation</span><span>Contaminated land</span><span>Environmental management</span></p>
+          </div>
+          <div class="how-item spatial">
+            <span class="how-mark" aria-hidden="true"></span>
+            <h3 class="how-name">Spatial &amp; Data Analysis</h3>
+            <p class="how-desc">Spatial and statistical analysis of environmental data, including GIS and remote sensing.</p>
+            <p class="how-list"><span>GIS</span><span>Remote sensing</span><span>Spatial analysis</span><span>Environmental data</span><span>Statistics</span><span>Python</span></p>
+          </div>
+          <div class="how-item env">
+            <span class="how-mark" aria-hidden="true"></span>
+            <h3 class="how-name">Reporting &amp; Communication</h3>
+            <p class="how-desc">Technical reporting, mapping and communication of environmental findings.</p>
+            <p class="how-list"><span>Technical reporting</span><span>Mapping</span><span>Environmental interpretation</span><span>Regulatory research</span><span>Stakeholder communication</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="about-section">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-label">About</span><span class="eyebrow-rule"></span></div>
+        <div class="about-grid">
+          <div data-reveal>
+            <h2 class="about-title">About</h2>
+            <div class="about-body">
+              <p>My background combines biology, environmental management and environmental science. I began my career in scientific research and later moved into applied environmental work, including environmental monitoring, ecological rehabilitation, field assessment and projects with rural communities in Colombia.</p>
+              <p>After moving to Australia, I completed a Master of Environmental Science at UWA, specialising in Environmental Rehabilitation. This added an Australian context to my previous experience, particularly across environmental assessment, contaminated land, mining environmental management, rehabilitation, GIS and remote sensing.</p>
+              <p>Today, I bring those areas together in the way I approach environmental work. I am comfortable in the field, working with environmental and spatial data, and communicating technical findings. I am particularly interested in work where understanding site conditions, environmental risks and ecological processes can inform environmental management and rehabilitation.</p>
+              <p>I am based in Perth and am continuing to build my career in environmental consulting and mine-site environmental management in Western Australia.</p>
+            </div>
+          </div>
+          <div class="progression" data-reveal aria-hidden="false">
+            <div class="prog-step"><span class="prog-rail"><span class="prog-dot"></span><span class="prog-line"></span></span><span class="prog-label">Biology</span></div>
+            <div class="prog-step"><span class="prog-rail"><span class="prog-dot"></span><span class="prog-line"></span></span><span class="prog-label">Environmental Science</span></div>
+            <div class="prog-step"><span class="prog-rail"><span class="prog-dot"></span><span class="prog-line"></span></span><span class="prog-label">Environmental Assessment</span></div>
+            <div class="prog-step is-current"><span class="prog-rail"><span class="prog-dot"></span></span><span class="prog-label">GIS / Spatial Evidence</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCIENTIFIC FOUNDATIONS ================= -->
+    <section class="research-section section-alt">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-label">Research</span><span class="eyebrow-rule"></span></div>
+        <div class="research-grid" data-reveal>
+          <div>
+            <h2 class="research-title">Scientific foundations</h2>
+            <p class="research-text">Scientific research was an important part of my early career and continues to influence how I approach environmental work. My experience in biochemical research developed my ability to work critically with evidence, analyse data, deal with uncertainty and communicate technical findings.</p>
+          </div>
+          <div class="pub-card">
+            <div class="pub-label">Peer-Reviewed Research</div>
+            <h3 class="pub-title">The Dimer-of-Trimers Assembly Prevents Catalysis at the Transferase Site of Prokaryotic FAD Synthase</h3>
+            <p class="pub-authors">Lans I., <strong>Seco J.</strong>, Serrano A., Burbano R., Cossio P., Daza M.C., Medina M.</p>
+            <p class="pub-cite">Biophysical Journal · 2018</p>
+            <p class="pub-note">Peer-reviewed research involving quantitative analysis, scientific interpretation and technical publication.</p>
+            <a class="pub-link" href="https://www.cell.com/biophysj/fulltext/S0006-3495(18)30963-9" target="_blank" rel="noopener">View publication <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section class="edu-section">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-label">Education</span><span class="eyebrow-rule"></span></div>
+        <h2 class="how-title" style="margin-bottom: 32px;" data-reveal>Education</h2>
+        <div class="edu-layout" data-reveal>
+          <div class="edu-main">
+            <h3 class="edu-degree">Master of Environmental Science (Environmental Rehabilitation)</h3>
+            <p class="edu-school">The University of Western Australia, Perth, WA</p>
+            <p class="edu-meta">August 2024 – June 2026 · WAM 79 · GPA 6.4/7</p>
+            <p class="edu-note">Coursework: contaminated site investigation (DWER/NEPM guidelines), remediation of soils and groundwater, environmental management in mining, ecological rehabilitation, GIS and remote sensing.</p>
+          </div>
+          <div class="edu-other">
+            <div class="edu-other-item">
+              <p class="edu-other-degree">Graduate Certificate in Environmental Management</p>
+              <p class="edu-other-school">University Foundation of the Andean Region, Colombia</p>
+              <p class="edu-other-date">August 2020 – December 2021</p>
+            </div>
+            <div class="edu-other-item">
+              <p class="edu-other-degree">Bachelor of Biology</p>
+              <p class="edu-other-school">Industrial University of Santander, Colombia</p>
+              <p class="edu-other-date">March 2011 – March 2017 · Dissertation Grade 5.0/5.0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-achievements" data-reveal>
+          <div class="eyebrow" style="margin-bottom: 18px;"><span class="eyebrow-label">Achievements</span><span class="eyebrow-rule"></span></div>
+          <ul class="achv-list">
+            <li>UWA Global Excellence Scholarship</li>
+            <li>Colfuturo Scholarship, Colombia's competitive national postgraduate funding program</li>
+            <li>Co-author, <em>Biophysical Journal</em> (2018)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact-section section-dark">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-label">Contact</span><span class="eyebrow-rule"></span></div>
+        <div data-reveal>
+          <h2 class="contact-title">Get in touch</h2>
+          <p class="contact-text">I am based in Perth and interested in opportunities and collaborations across environmental assessment, rehabilitation, monitoring, contaminated land, GIS and environmental management.</p>
+          <div class="contact-links">
+            <a href="mailto:juandejesusseco1204@gmail.com" class="contact-link">Email <span aria-hidden="true">↗</span></a>
+            <a href="https://linkedin.com/in/secoj" target="_blank" rel="noopener" class="contact-link">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/jjseco" target="_blank" rel="noopener" class="contact-link">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer section-dark">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <div class="footer-name">JUAN SECO ARIAS</div>
+          <div class="footer-role">Environmental Scientist</div>
+          <div class="footer-role">Perth, Western Australia</div>
+          <div class="footer-role mono">Environmental Assessment · Rehabilitation · GIS · Environmental Monitoring</div>
+        </div>
+        <div class="footer-links">
+          <a href="https://linkedin.com/in/secoj" target="_blank" rel="noopener" class="footer-link">LinkedIn ↗</a>
+          <a href="https://github.com/jjseco" target="_blank" rel="noopener" class="footer-link">GitHub ↗</a>
+          <a href="mailto:juandejesusseco1204@gmail.com" class="footer-link">Email ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>31.9523° S / 115.8613° E</span>
         <span>&copy; 2026 Juan Seco Arias</span>
       </div>
     </div>
-  </section>
+  </footer>
 
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      var onScroll = function () {
+        if (window.scrollY > 8) nav.classList.add('is-scrolled');
+        else nav.classList.remove('is-scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        var els = document.querySelectorAll('[data-reveal]');
+        els.forEach(function (el) { el.classList.add('reveal'); });
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      }
+    })();
+  </script>
 </body>
 </html>
